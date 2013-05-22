@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipe:</b>
+  <%= @ing_rec_join.recipe_id %>
+</p>
+
+<p>
+  <b>Ingredient:</b>
+  <%= @ing_rec_join.ingredient_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ing_rec_join_path(@ing_rec_join) %> |
+<%= link_to 'Back', ing_rec_joins_path %>
