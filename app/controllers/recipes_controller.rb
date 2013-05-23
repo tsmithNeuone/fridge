@@ -14,7 +14,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-
+    @rec_ing = IngRecJoin.find_all_by_recipe_id(@recipe)
+    @ingredients = Ingredient.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recipe }

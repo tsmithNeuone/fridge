@@ -5,6 +5,16 @@
   <%= @recipe.recipe_name %>
 </p>
 
+<p>
+	<% @rec_ing.each do |ingred|%>
+	<ul>
+		<%= @ingredients.at(ingred.ingredient_id - 1).ingredient_name %>
+	</ul>
+	<%end%>
+</p>
+
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+
+

@@ -1,0 +1,20 @@
+<h1>Testing some info getting abilities</h1>
+<table>
+  <tr>
+    <th>Recipe </th>
+    <th>Ingredient</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ing_rec_joins.each do |ing_rec_join| %>
+  <tr>
+    <td><%= @recipes.at(ing_rec_join.recipe_id - 1).recipe_name %></td>
+    <td><%= @ingredients.at(ing_rec_join.ingredient_id - 1).ingredient_name %></td>
+    <td><%= link_to 'Show', ing_rec_join %></td>
+    <td><%= link_to 'Edit', edit_ing_rec_join_path(ing_rec_join) %></td>
+    <td><%= link_to 'Destroy', ing_rec_join, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
