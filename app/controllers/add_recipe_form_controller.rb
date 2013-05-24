@@ -1,0 +1,2 @@
+class AddRecipeFormController < ApplicationController
+end

@@ -1,3 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+
+<link rel="stylesheet" href="home.css" type="text/css" />
+ <%= stylesheet_link_tag "home" %>
+</head>
+<body>
+<body bgcolor = "black">
+<body background="/assets/fridge-1.jpg">
+
+<div class = 'border'>
+<div class='heading'>
+
+<center>
+	<h2 style="color: white"> Welcome to the Fridge Program</h2>
+</center>
+
+
+</div>
+</div>
+<div class = 'border'>
+<div class='content'>
+<center>
+ 
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,14 +36,26 @@
 
 <p>
 	<% @rec_ing.each do |ingred|%>
-	<ul>
-		<li><%= @ingredients.at(ingred.ingredient_id - 1).ingredient_name %></li>
-	</ul>
+	<%= @ingredients.at(ingred.ingredient_id - 1).ingredient_name %>
+	</br>
+	
 	<%end%>
 </p>
 
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+
+<br/>
+ <img src="/assets/1024px-High_Fat_Foods_-_NCI_Visuals_Online.jpg" width="800" height="550">
+</center>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
 
 

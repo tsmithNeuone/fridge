@@ -10,7 +10,8 @@ class SearchFormController < ApplicationController
     @list_user_input = params[:one],params[:two],params[:three],params[:four]
     @list_user_input.delete("")
     @list_user_input.each do |entry|
-      entry.chomp.capitalize!
+      entry.gsub!(/\s+/, "")
+      entry.capitalize!
     end
 
     @ing_rec_joins = IngRecJoin.all
