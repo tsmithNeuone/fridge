@@ -1,7 +1,6 @@
-<%= form_tag("/search_form/results", :method => "get") do %>
-	
-	
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+<% provide(:title,'Fridge Program') %>
+<%= @ingredients %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -31,41 +30,27 @@
  <h4> Here you will input what ingredients you have in your fridge.</h4> 
   The program will give you a recipe you can make!<br />
   
-  <table :title = "Ingredients">
-		<tr>
-			<th>Ingredients:</th>
-			</tr>
-		<tr>
-			<td><%= text_field_tag(:one) %></td>
-		</tr>
-		<tr>
-			<td><%= text_field_tag(:two) %></td>
-		</tr>
-		<tr>
-			<td><%= text_field_tag(:three) %></td>
-		</tr>
-		<tr>
-			<td><%= text_field_tag(:four) %></td>
-		</tr>
-	</table>
-	<%= submit_tag "Submit", :name => nil %>
-	
+   <form name="input" method="get">
+  	<br/>
+Ingredients: <input type="text" name="ingredients">
+ <br/>
+ (Please seperate each ingredient with a comma.)
+ <br/>
+<input type="submit" value="Submit" >
+
+</form>
+<%= form_tag("/search", :method => "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<%= submit_tag "Text" %>
+
 <br/>
- <img src="/assets/electrolux-enl60710x-fridge-lr.PNG" width="300" height="650">
+ <img src="/assets/electrolux-enl60710x-fridge-lr.jpg" width="300" height="650">
 </center>
 </div>
 </div>
 </body>
 </html>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<%end%>

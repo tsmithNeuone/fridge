@@ -1,6 +1,33 @@
-<h1>Results</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+
+<link rel="stylesheet" href="home.css" type="text/css" />
+ <%= stylesheet_link_tag "home" %>
+</head>
 <body>
-	<p>You entered: <%= @list.join(", ")%></p>
+<body bgcolor = "black">
+<body background="/assets/fridge-1.jpg">
+
+<div class = 'border'>
+<div class='heading'>
+
+<center>
+	<h2 style="color: white"> Welcome to the Fridge Program</h2>
+</center>
+
+
+</div>
+</div>
+<div class = 'border'>
+<div class='content'>
+<center>
+ 
+ <h1>Results</h1>
+ <p>You entered: <%= @list.join(", ")%></p>
 	<p>From that list 
 		<% if @ing_found.length > 1%>
 			<%= @ing_found.join(", ")%> 
@@ -20,5 +47,16 @@
 	<p>
 		<%=link_to "Back", :controller => "search_form", :action => "index" %>
 	</p>
+ 
+ 
+ 
+ 
+ 
 
+<br/>
+ <img src="/assets/electrolux-enl60710x-fridge-lr.PNG" width="300" height="650">
+</center>
+</div>
+</div>
 </body>
+</html>

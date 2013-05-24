@@ -1,5 +1,5 @@
 Fridge::Application.routes.draw do
-  
+  get "home_/home"
   resources :ing_rec_joins
   resources :recipes
   resources :get_info_page

@@ -1,0 +1,64 @@
+<%= form_for(@ingredient) do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+      <ul>
+      <% @ingredient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ingredients_name %><br />
+    <%= f.text_field :ingredients_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+<!--<% provide(:title,'Fridge Program') %>
+<%= @ingred %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+
+<link rel="stylesheet" href="home.css" type="text/css" />
+ <%= stylesheet_link_tag "home" %>
+</head>
+<body>
+<body bgcolor = "black">
+<body background="/assets/fridge-1.jpg">
+
+<div class = 'border'>
+<div class='heading'>
+	
+<center>
+	<h2 style="color: white"> Here is what you can make!</h2>
+</center>
+
+
+</div>
+</div>
+<div class = 'border'>
+<div class='content'>
+<center>
+ <h4> With the ingredients you have inputed you can make this recipe!<br />
+  
+<br/>
+ <img src="/assets/electrolux-enl60710x-fridge-lr.jpg" width="300" height="650">
+</center>
+</div>
+</div>
+</body>
+</html> -->
