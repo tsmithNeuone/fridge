@@ -7,6 +7,7 @@ Fridge::Application.routes.draw do
   
   resources :search_form
   
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
