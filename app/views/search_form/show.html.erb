@@ -27,25 +27,27 @@
 <center>
  
  <h1>Results</h1>
- <p>You entered: <%= @list.join(", ")%></p>
+ <p>You entered: <%= @list_user_input.join(", ")%></p>
 	<p>From that list 
-		<% if @ing_found.length > 1%>
-			<%= @ing_found.join(", ")%> 
+		<% if @user_input_found_in_ingredients.length > 1%>
+			<%= @user_input_found_in_ingredients.join(", ")%> 
 			were
-		<%elsif @ing_found.length == 1%>
-			<%= @ing_found.join(", ")%> was
+		<%elsif @user_input_found_in_ingredients.length == 1%>
+			<%= @user_input_found_in_ingredients.join(", ")%> was
 		<%else%>
 			nothing was
 		<%end%> found!
 	</p>
 	<p>
-		<% if @ing_found.length > 0%>
-		You can make:
-		<%= @found_rec_with_all.join(", ")%>
+		<% if @user_input_found_in_ingredients.length > 0%>
+		You can make:</br>
+			<%@found_recipe_with_all_ingredients.each do |valid_recipe|%>
+				<%= link_to valid_recipe, (Recipe.find_by_recipe_name(valid_recipe)) %></br>
+			<%end%>
 		<%end%>
 	</p>
 	<p>
-		<%=link_to "Back", :controller => "search_form", :action => "index" %>
+		<%=link_to "Search Again?", :controller => "search_form", :action => "index" %>
 	</p>
  
  

@@ -7,48 +7,48 @@ class SearchFormController < ApplicationController
   end
   
   def show
-    @list = params[:one],params[:two],params[:three],params[:four]
-    @list.delete("")
-    @list.each do |entry|
-      entry.capitalize!
+    @list_user_input = params[:one],params[:two],params[:three],params[:four]
+    @list_user_input.delete("")
+    @list_user_input.each do |entry|
+      entry.chomp.capitalize!
     end
 
     @ing_rec_joins = IngRecJoin.all
     @recipes = Recipe.all
     @ingredients = Ingredient.all
-    @ing_found = Array.new
-    @found_rec_with_all = Array.new
+    @user_input_found_in_ingredients = Array.new
+    @found_recipe_with_all_ingredients = Array.new
     
     
-    @list.each do |user_input|
+    @list_user_input.each do |user_input|
       if Ingredient.find_by_ingredient_name(user_input) != nil
-        @ing_found.push(Ingredient.find_by_ingredient_name(user_input).ingredient_name)
+        @user_input_found_in_ingredients.push(Ingredient.find_by_ingredient_name(user_input).ingredient_name)
       end
     end
     
-    if @ing_found != nil or !@ing_found.empty?
+    if @user_input_found_in_ingredients != nil or !@user_input_found_in_ingredients.empty?
       @recipes.each do |recipe|
         @temp = Array.new
-        @rec_ing = IngRecJoin.find_all_by_recipe_id(recipe)
-        @rec_ing.each do |ing|
+        @recipe_ingredients = IngRecJoin.find_all_by_recipe_id(recipe)
+        @recipe_ingredients.each do |ing|
           @temp.push(Ingredient.find(IngRecJoin.find(ing).ingredient_id).ingredient_name)
         end
         @boo_rec_has_all = true
-        @ing_found.each do |ing_check|
+        @user_input_found_in_ingredients.each do |ing_check|
           @boo_flag = @temp.include?(ing_check)
           if !@boo_flag
             @boo_rec_has_all = false
           end
         end
         if(@boo_rec_has_all)
-          @found_rec_with_all.push(Recipe.find(recipe).recipe_name)
+          @found_recipe_with_all_ingredients.push(Recipe.find(recipe).recipe_name)
         end
       end
       
     end
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @list }
+      format.json { render json: @list_user_input }
     end
   end
   
