@@ -9,6 +9,9 @@ class SearchFormController < ApplicationController
   def show
     @list = params[:one],params[:two],params[:three],params[:four]
     @list.delete("")
+    @list.each do |entry|
+      entry.capitalize!
+    end
 
     @ing_rec_joins = IngRecJoin.all
     @recipes = Recipe.all

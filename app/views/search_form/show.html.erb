@@ -1,15 +1,21 @@
 <h1>Results</h1>
 <body>
 	<p>You entered: <%= @list.join(", ")%></p>
-	<p>From that list <% if @ing_found.length > 1%>
-		<%= @ing_found.join(", ")%> 
-		were
+	<p>From that list 
+		<% if @ing_found.length > 1%>
+			<%= @ing_found.join(", ")%> 
+			were
+		<%elsif @ing_found.length == 1%>
+			<%= @ing_found.join(", ")%> was
 		<%else%>
-		<%= @ing_found.join(", ")%> was
+			nothing was
 		<%end%> found!
 	</p>
-	<p>You can make:
+	<p>
+		<% if @ing_found.length > 0%>
+		You can make:
 		<%= @found_rec_with_all.join(", ")%>
+		<%end%>
 	</p>
 	<p>
 		<%=link_to "Back", :controller => "search_form", :action => "index" %>
